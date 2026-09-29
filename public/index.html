@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro de usuarios</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 16px/1.5 system-ui, sans-serif; background: #f2f5fa; color: #17243c; }
+    main { max-width: 740px; margin: 56px auto; padding: 0 20px; }
+    section { padding: 28px; background: white; border: 1px solid #dde3ed; border-radius: 16px; margin: 22px 0; }
+    h1 { font-size: 32px; margin: 8px 0; } h2 { font-size: 21px; margin-top: 0; }
+    .tag { color: #3651b6; font-weight: 700; font-size: 13px; letter-spacing: 1px; }
+    label { display: block; font-weight: 600; margin: 18px 0 6px; }
+    input, button { font: inherit; border-radius: 8px; padding: 12px; }
+    input { width: 100%; border: 1px solid #a8b5c9; }
+    button { margin-top: 22px; border: 0; color: white; background: #304fc5; cursor: pointer; }
+    button:disabled { opacity: .65; cursor: wait; }
+    input:focus-visible, button:focus-visible { outline: 3px solid #95b4ff; outline-offset: 2px; }
+    #mensaje { min-height: 24px; } .error { color: #ac2439; } .exito { color: #17613d; }
+    ul { padding: 0; list-style: none; } li { padding: 12px 0; border-bottom: 1px solid #e2e7ef; overflow-wrap: anywhere; }
+    li span { display: block; color: #53647d; } .nota { color: #53647d; }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="tag">EJEMPLO · NESTJS + SQLITE</span>
+    <h1>Registro de usuarios</h1>
+    <p class="nota">Completa el formulario para guardar un usuario en la base de datos.</p>
+    <section>
+      <h2>Nuevo usuario</h2>
+      <form id="formulario">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" name="nombre" autocomplete="name" required minlength="2" maxlength="80" placeholder="Ej. Ana Pérez">
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="ana@ejemplo.com">
+        <button type="submit" id="guardar">Guardar usuario</button>
+      </form>
+      <p id="mensaje" role="status" aria-live="polite"></p>
+    </section>
+    <section>
+      <h2>Usuarios registrados</h2>
+      <p id="estado" role="status">Cargando usuarios…</p>
+      <ul id="usuarios"></ul>
+    </section>
+    <p class="nota">Los registros se conservan al reiniciar la aplicación.</p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
